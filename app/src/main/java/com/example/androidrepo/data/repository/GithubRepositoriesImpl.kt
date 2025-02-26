@@ -13,6 +13,6 @@ class GithubRepositoriesImpl @Inject constructor(private val service: GithubApi)
     }
 
     override fun getPullRequests(owner: String, repository: String): Call<List<PullRequests>> {
-        return service.getPullRequests(owner, repository)
+        return service.getPullRequests(owner = owner, repository = repository)
     }
 }

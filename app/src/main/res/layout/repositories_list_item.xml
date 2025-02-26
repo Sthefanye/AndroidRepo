@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcRepository"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_default_4dp"
+        android:clickable="true"
+        android:contentDescription="@string/info_card_accessibility"
+        android:elevation="2dp"
+        android:focusable="true"
+        android:importantForAccessibility="yes"
+        android:outlineAmbientShadowColor="@color/white"
+        android:outlineSpotShadowColor="@color/white"
+        app:cardBackgroundColor="@color/gray_light"
+        app:cardCornerRadius="10dp"
+        tools:targetApi="p">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvRepositoryName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_default_20dp"
+                android:layout_marginTop="@dimen/margin_default_20dp"
+                android:contentDescription="@string/title_repository_accessibility"
+                android:fontFamily="@font/monasans_bold"
+                android:importantForAccessibility="yes"
+                android:maxEms="16"
+                android:maxLines="1"
+                android:text=""
+                android:textColor="@color/blue"
+                android:textSize="@dimen/large_text_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvRepoDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/margin_default_4dp"
+                android:contentDescription="@string/description_repository_accessibility"
+                android:fontFamily="@font/monasans_medium"
+                android:importantForAccessibility="yes"
+                android:maxEms="18"
+                android:maxLines="2"
+                android:text=""
+                android:textColor="@color/gray_dark"
+                android:textSize="@dimen/medium_text_size"
+                app:layout_constraintStart_toStartOf="@id/tvRepositoryName"
+                app:layout_constraintTop_toBottomOf="@id/tvRepositoryName" />
+
+            <ImageView
+                android:id="@+id/ivFork"
+                android:layout_width="@dimen/size_default_icon"
+                android:layout_height="@dimen/size_default_icon"
+                android:layout_marginTop="@dimen/margin_default_6dp"
+                android:layout_marginBottom="@dimen/margin_default_16dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/fork_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tvRepoDesc"
+                app:layout_constraintTop_toBottomOf="@id/tvRepoDesc" />
+
+            <TextView
+                android:id="@+id/tvForkNumbers"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginStart="2dp"
+                android:contentDescription="@string/fork_count_accessibility"
+                android:fontFamily="@font/monasans_medium"
+                android:gravity="center"
+                android:importantForAccessibility="yes"
+                android:text=""
+                android:textColor="@color/yellow"
+                android:textSize="@dimen/small_text_size"
+                app:layout_constraintBottom_toBottomOf="@id/ivFork"
+                app:layout_constraintStart_toEndOf="@id/ivFork"
+                app:layout_constraintTop_toTopOf="@id/ivFork" />
+
+            <ImageView
+                android:id="@+id/ivStar"
+                android:layout_width="@dimen/size_default_icon"
+                android:layout_height="@dimen/size_default_icon"
+                android:layout_marginVertical="@dimen/margin_default_10dp"
+                android:layout_marginStart="@dimen/margin_default_16dp"
+                android:adjustViewBounds="true"
+                android:importantForAccessibility="no"
+                android:src="@drawable/star_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/ivFork"
+                app:layout_constraintStart_toEndOf="@+id/tvForkNumbers"
+                app:layout_constraintTop_toTopOf="@+id/ivFork"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/tvStarsNumbers"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginStart="@dimen/margin_default_2dp"
+                android:contentDescription="@string/stars_count_accessibility"
+                android:fontFamily="@font/monasans_medium"
+                android:gravity="center"
+                android:importantForAccessibility="yes"
+                android:text=""
+                android:textColor="@color/yellow"
+                android:textSize="@dimen/small_text_size"
+                app:layout_constraintBottom_toBottomOf="@id/ivStar"
+                app:layout_constraintStart_toEndOf="@id/ivStar"
+                app:layout_constraintTop_toTopOf="@id/ivStar" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvOwner"
+                android:layout_width="@dimen/size_profile"
+                android:layout_height="@dimen/size_profile"
+                android:layout_marginHorizontal="@dimen/margin_default_20dp"
+                android:layout_marginTop="@dimen/margin_default_16dp"
+                android:fontFamily="@font/monasans_medium"
+                app:cardCornerRadius="@dimen/corner_radius_profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivOwner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/user_picture_accessibility"
+                    android:importantForAccessibility="yes"
+                    android:src="@drawable/ic_launcher_foreground" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tvUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_default_6dp"
+                android:layout_marginBottom="@dimen/margin_default_10dp"
+                android:contentDescription="@string/username_accessibility"
+                android:fontFamily="@font/monasans_medium"
+                android:importantForAccessibility="yes"
+                android:maxEms="10"
+                android:maxLines="2"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="@color/gray_muted"
+                android:textSize="@dimen/medium_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/cvOwner"
+                app:layout_constraintStart_toStartOf="@+id/cvOwner"
+                app:layout_constraintTop_toBottomOf="@+id/cvOwner">
+
+            </TextView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

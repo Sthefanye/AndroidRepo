@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Components Size -->
+    <dimen name="margin_default_24dp">24dp</dimen>
+    <dimen name="margin_default_20dp">20dp</dimen>
+    <dimen name="margin_default_16dp">16dp</dimen>
+    <dimen name="margin_default_10dp">10dp</dimen>
+    <dimen name="margin_default_6dp">6dp</dimen>
+    <dimen name="margin_default_4dp">4dp</dimen>
+    <dimen name="margin_default_2dp">2dp</dimen>
+    <dimen name="corner_radius_profile">150dp</dimen>
+    <dimen name="size_profile">70dp</dimen>
+    <dimen name="size_profile_small">30dp</dimen>
+    <dimen name="size_default_icon">18dp</dimen>
+
+    <!-- Text Size -->
+    <dimen name="button_text_size">15sp</dimen>
+    <dimen name="large_text_size">16sp</dimen>
+    <dimen name="medium_text_size">12sp</dimen>
+    <dimen name="small_text_size">11sp</dimen>
+</resources>

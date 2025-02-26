@@ -12,12 +12,13 @@ interface GithubApi {
     fun getRepositories(
         @Query("q") query: String = "language:Kotlin",
         @Query("sort") sort: String = "stars",
-        @Query("page") page: Int = 1
+        @Query("per_page") perPage: Int = 100
     ): Call<Repositories>
 
     @GET("repos/{owner}/{repo}/pulls")
     fun getPullRequests(
         @Path("owner") owner: String,
-        @Path("repo") repository: String
+        @Path("repo") repository: String,
+        @Query("per_page") perPage: Int = 100
     ): Call<List<PullRequests>>
 }

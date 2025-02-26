@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">AndroidRepo</string>
+    <string name="repositories_title_toolbar">Repositórios Kotlin</string>
+    <string name="pull_requests_title_toolbar">Pull Requests Kotlin</string>
+
+    <!-- Accessibility String-->
+    <string name="description_repository_accessibility">Descrição do repositório</string>
+    <string name="title_repository_accessibility">Título do repositório</string>
+    <string name="fork_count_accessibility">Quatidade de ramificaçoes</string>
+    <string name="stars_count_accessibility">Quantidade de favoritos</string>
+    <string name="user_picture_accessibility">Foto do usuário</string>
+    <string name="username_accessibility">Nome do dono do projeto</string>
+    <string name="info_card_accessibility">Informações do repositório card</string>
+    <string name="info_pull_request_accessibility">Informações do pull request Card</string>
+    <string name="link_icon_accessibility">Link externo</string>
 </resources>

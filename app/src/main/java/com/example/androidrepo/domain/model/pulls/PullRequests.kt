@@ -28,7 +28,7 @@ data class PullRequests (
     @SerializedName("user")
     val user: User,
     @SerializedName("body")
-    val body: String,
+    val body: String?,
     @SerializedName("created_at")
     val createdAt: String?,
     @SerializedName("updated_at")
