@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <application
-        android:name=".application.GitHubRepositoriesApplication"
+        android:name="com.example.androidrepo.application.GitHubRepositoriesApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidRepo"
-        tools:targetApi="31">
+        tools:targetApi="35">
         <activity
             android:name="com.example.androidrepo.presentation.screens.MainActivity"
             android:exported="true"
@@ -28,19 +28,11 @@
         <activity
             android:name="com.example.androidrepo.presentation.screens.repositories.RepositoriesListActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity
             android:name="com.example.androidrepo.presentation.screens.pullRequests.PullRequestsListActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

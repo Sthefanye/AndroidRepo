@@ -16,7 +16,7 @@
         android:importantForAccessibility="yes"
         android:outlineAmbientShadowColor="@color/white"
         android:outlineSpotShadowColor="@color/white"
-        app:cardBackgroundColor="@color/gray_light"
+        app:cardBackgroundColor="#454c54"
         app:cardCornerRadius="10dp"
         tools:targetApi="p">
 
@@ -52,7 +52,7 @@
                 android:maxEms="18"
                 android:maxLines="2"
                 android:text=""
-                android:textColor="@color/gray_dark"
+                android:textColor="@color/gray_light"
                 android:textSize="@dimen/medium_text_size"
                 app:layout_constraintStart_toStartOf="@id/tvRepositoryName"
                 app:layout_constraintTop_toBottomOf="@id/tvRepositoryName" />
@@ -148,7 +148,7 @@
                 android:maxLines="2"
                 android:text=""
                 android:textAlignment="center"
-                android:textColor="@color/gray_muted"
+                android:textColor="@color/gray_light"
                 android:textSize="@dimen/medium_text_size"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/cvOwner"

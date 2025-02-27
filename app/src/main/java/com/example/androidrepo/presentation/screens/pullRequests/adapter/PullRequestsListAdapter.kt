@@ -3,10 +3,10 @@ package com.example.androidrepo.presentation.screens.pullRequests.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.androidrepo.databinding.PullRequestListItemBinding
 import com.example.androidrepo.domain.model.pulls.PullRequests
 import com.example.androidrepo.presentation.utils.addEllipsis
-import com.squareup.picasso.Picasso
 
 class PullRequestsListAdapter (private val listPullRequests: List<PullRequests>) :
     RecyclerView.Adapter<PullRequestsListAdapter.PullRequestViewHolder>() {
@@ -18,7 +18,7 @@ class PullRequestsListAdapter (private val listPullRequests: List<PullRequests>)
                 tvPullRequestName.text = pullRequest.title
                 tvPullRequestDescription.text = addEllipsis(pullRequest.body ?: "")
                 tvUsername.text = pullRequest.user.login
-                Picasso.get().load(pullRequest.user.avatarUrl).into(ivOwnerAvatar);
+                Glide.with(binding.root).load(pullRequest.user.avatarUrl).into(ivOwnerAvatar)
             }
         }
     }

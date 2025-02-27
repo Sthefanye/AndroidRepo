@@ -3,15 +3,16 @@ package com.example.androidrepo.presentation.screens.repositories.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.androidrepo.databinding.RepositoriesListItemBinding
 import com.example.androidrepo.domain.model.repositories.Items
 import com.example.androidrepo.presentation.utils.addEllipsis
 import com.example.androidrepo.presentation.utils.toTitle
-import com.squareup.picasso.Picasso
+
 
 class RepositoriesListAdapter(
     private val listRepositories: List<Items>,
-    private val onItemClicked: () -> Unit
+    private val onItemClicked: (String, String) -> Unit
 ) :
     RecyclerView.Adapter<RepositoriesListAdapter.RepositoriesViewHolder>() {
 
@@ -25,7 +26,8 @@ class RepositoriesListAdapter(
                 tvForkNumbers.text = "${item.forksCount}"
                 tvStarsNumbers.text = "${item.stargazersCount}"
                 tvUsername.text = item.owner.login
-                Picasso.get().load(item.owner.avatarUrl).into(ivOwner);
+                Glide.with(binding.root).load(item.owner.avatarUrl).into(ivOwner)
+                itemView.setOnClickListener { onItemClicked(item.owner.login, item.name) }
             }
         }
     }
@@ -42,7 +44,6 @@ class RepositoriesListAdapter(
 
     override fun onBindViewHolder(viewHolder: RepositoriesViewHolder, position: Int) {
         val repository = listRepositories[position]
-        viewHolder.itemView.setOnClickListener { onItemClicked() }
         viewHolder.bindItem(repository)
     }
 

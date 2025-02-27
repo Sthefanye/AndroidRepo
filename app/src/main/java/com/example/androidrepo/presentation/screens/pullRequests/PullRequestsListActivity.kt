@@ -3,16 +3,16 @@ package com.example.androidrepo.presentation.screens.pullRequests
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.androidrepo.R
+import com.example.androidrepo.core.common.NetworkResult
 import com.example.androidrepo.databinding.ActivityPullRequestsListBinding
 import com.example.androidrepo.domain.model.pulls.PullRequests
 import com.example.androidrepo.presentation.screens.pullRequests.adapter.PullRequestsListAdapter
 import com.example.androidrepo.presentation.screens.pullRequests.viewmodel.PullRequestListViewModel
+import com.example.androidrepo.presentation.utils.Constants
 import dagger.hilt.android.AndroidEntryPoint
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class PullRequestsListActivity : AppCompatActivity() {
@@ -23,36 +23,33 @@ class PullRequestsListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPullRequestsListBinding.inflate(layoutInflater)
 
-        supportActionBar?.title = getString(R.string.repositories_title_toolbar)
+        intent.extras?.let {
+            val repository = it.getString(Constants.Extras.REPOSITORY_EXTRA) ?: ""
+            val name = it.getString(Constants.Extras.USERNAME_EXTRA) ?: ""
+            viewModel.getPullRequests(repository, name)
+        }
 
-        viewModel.getPullRequests(owner = "jetbrains", repo = "kotlin").enqueue(object : Callback<List<PullRequests>> {
-            override fun onResponse(call: Call<List<PullRequests>>, response: Response<List<PullRequests>>) {
-                if (response.isSuccessful) {
-                    response.body()?.let {
-                        loadListInRecycler(it)
-                    }
-
-                } else {
-                    println(
-                        "Erro na resposta: ${response.code()} , ${
-                            response.errorBody().toString()
-                        }"
-                    )
-                }
-            }
-
-            override fun onFailure(call: Call<List<PullRequests>>, error: Throwable) {
-                println("Falha na requisição: ${error.message}")
-            }
-        })
-
+        bindObservers()
         setContentView(binding?.root)
     }
-
-    fun loadListInRecycler(listRepo: List<PullRequests>) {
+    private fun loadListInRecycler(listRepo: List<PullRequests>) {
         val adapter = PullRequestsListAdapter(listRepo)
         binding?.rcListPullRequests?.layoutManager = LinearLayoutManager(this)
         binding?.rcListPullRequests?.adapter = adapter
+    }
+
+    private fun bindObservers() {
+        lifecycleScope.launch {
+            viewModel.pullRequestsList.observe(this@PullRequestsListActivity) {
+                when(it) {
+                    is NetworkResult.Loading -> println("Loading")
+                    is NetworkResult.Success -> {
+                        loadListInRecycler(it.data)
+                    }
+                    is NetworkResult.Failure -> println("Failure")
+                }
+            }
+        }
     }
 
     override fun onDestroy() {

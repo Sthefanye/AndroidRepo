@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidRepo</string>
+    <string name="app_name">Find Android Projects</string>
     <string name="repositories_title_toolbar">Repositórios Kotlin</string>
     <string name="pull_requests_title_toolbar">Pull Requests Kotlin</string>
 
