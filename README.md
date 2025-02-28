@@ -5,11 +5,7 @@
   Popular Kotlin Repositores 
  
   </h1>
-    
-<p align="center">
-      <img src="https://github.com/Sthefanye/AndroidRepo/blob/main/AppRepositoriesGif.gif?raw=true" alt="APP"  width="250" />
-  
-  </p>
+
     
 # Popular Kotlin Repositores 
 
