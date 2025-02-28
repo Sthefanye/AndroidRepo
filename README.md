@@ -1,9 +1,10 @@
 <h1 align = "center">
   <br>
-    
-  Popular Kotlin repositores
+   <img src = https://github.com/Sthefanye/AndroidRepo/blob/main/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp?raw=true "alt =" Popular Kotlin repositores "width =" 200 "> 
   <br>
-    </h1>
+  Popular Kotlin repositores 
+ 
+  </h1>
     
 <p align="center">
       <img src="https://github.com/Sthefanye/AndroidRepo/blob/main/AppRepositoriesGif.gif?raw=true" alt="APP"  width="250" />
