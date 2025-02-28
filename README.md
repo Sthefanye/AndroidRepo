@@ -13,7 +13,7 @@ Bem-vindo(a), Popular Kotlin repositores é um aplicativo que lista os repositó
 ## Como instalar ☕️
 Para clonar e executar esse aplicativo, você precisará do <a href="https://github.com/">Git</a> e <a href="https://developer.android.com/studio">Android Studio</a> instalado no seu computador. 
     <br>Em seu terminal, clone o repositório:
-    <h5>Clone this repository: </h5>
+    <h5>Clone o repositório: </h5>
 ```markdown
    https://github.com/Sthefanye/AndroidRepo.git
   ```
@@ -24,8 +24,23 @@ Depois disso, abra o Android Studio, vá para Open (Abrir) e abra a pasta do rep
     • <strong> Target: </strong> Android 9.0 (Pie) e Emulador Pixel 8 API 35
     <br>
     <br>
-    
-    
+     </h1>
+     
+## Tecnologias utilizadas
+
+<h4> Versão que usei para o desenvolvimento do aplicativo: </h4>
+    • Kotlin <br>
+    • MVVM <br>
+    • Hilt (Dagger) <br>
+    • Retrofit e OkHttp <br>
+    • Gson <br>
+    • Glide <br>
+    • Material Design <br> 
+    • Para testes uniários: Mockito e Espresso <br>
+    <br>
+    <br>
+     </h1>
+
 <h3> Developer </h3>
 <p> Sthefanye Guimarães </p>
 
