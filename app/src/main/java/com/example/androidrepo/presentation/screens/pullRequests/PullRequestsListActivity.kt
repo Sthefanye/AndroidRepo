@@ -3,8 +3,10 @@ package com.example.androidrepo.presentation.screens.pullRequests
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -59,7 +61,10 @@ class PullRequestsListActivity : AppCompatActivity() {
                         }
                         loadListInRecycler(it.data)
                     }
-                    is NetworkResult.Failure -> println("Failure")
+                    is NetworkResult.Failure ->{
+                        Log.e(Constants.TAG, it.message)
+                        loadAlertException()
+                    }
                 }
             }
         }
@@ -86,11 +91,30 @@ class PullRequestsListActivity : AppCompatActivity() {
         binding?.tvEmptyList?.visibility = View.VISIBLE
     }
 
+    private fun loadAlertException() {
+        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+        builder
+            .setMessage("The information could not be uploaded, please try again or come back later ")
+            .setTitle("Failed to load repositories")
+            .setPositiveButton("Try again") { _, _ ->
+                loadProgress(true)
+                viewModel.getPullRequests(repository, name)
+            }
+            .setNegativeButton("Cancel") { _, _ ->
+                finish()
+                finishAffinity()
+            }
+
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }
+
     private fun loadProgress(isLoading: Boolean) {
         binding?.cpProgressIndicator?.progress
         binding?.cpProgressIndicator?.visibility = if (isLoading) View.VISIBLE else  View.GONE
         binding?.cpProgressIndicator?.setProgress(100, isLoading)
     }
+
 
     override fun onResume() {
         super.onResume()

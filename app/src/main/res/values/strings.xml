@@ -13,4 +13,6 @@
     <string name="info_card_accessibility">Informações do repositório card</string>
     <string name="info_pull_request_accessibility">Informações do pull request Card</string>
     <string name="link_icon_accessibility">Link externo</string>
+    <string name="popular_kotlin_repositories">Popular Kotlin repositories</string>
+    <string name="there_aren_t_any_open_pull_requests">There aren’t any open pull requests.</string>
 </resources>

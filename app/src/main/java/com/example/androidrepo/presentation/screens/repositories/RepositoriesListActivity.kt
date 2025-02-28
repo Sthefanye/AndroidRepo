@@ -1,8 +1,12 @@
 package com.example.androidrepo.presentation.screens.repositories
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -37,12 +41,15 @@ class RepositoriesListActivity : AppCompatActivity() {
         lifecycleScope.launch {
             viewModel.itemList.observe(this@RepositoriesListActivity) {
                 when (it) {
-                    is NetworkResult.Loading -> println("Loading")
+                    is NetworkResult.Loading -> loadProgress(true)
                     is NetworkResult.Success -> {
+                        loadProgress(false)
                         loadAdapter(it.data)
                     }
-
-                    is NetworkResult.Failure -> println("Failure")
+                    is NetworkResult.Failure -> {
+                        Log.e(Constants.TAG, it.message)
+                        loadAlertException()
+                    }
                 }
             }
         }
@@ -69,6 +76,29 @@ class RepositoriesListActivity : AppCompatActivity() {
         binding?.rcListRepositories?.layoutManager = LinearLayoutManager(this)
         binding?.rcListRepositories?.adapter = adapter
 
+    }
+
+    private fun loadAlertException() {
+        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+        builder
+            .setMessage("The information could not be uploaded, please try again or come back later ")
+            .setTitle("Failed to load repositories")
+            .setPositiveButton("Try again") { _, _ ->
+                viewModel.getRepositories()
+                loadProgress(true)
+            }
+            .setNegativeButton("Cancel") { _, _ ->
+               finish()
+            }
+
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }
+
+    private fun loadProgress(isLoading: Boolean) {
+        binding?.cpProgressIndicator?.progress
+        binding?.cpProgressIndicator?.visibility = if (isLoading) View.VISIBLE else  View.GONE
+        binding?.cpProgressIndicator?.setProgress(100, isLoading)
     }
 
     override fun onDestroy() {

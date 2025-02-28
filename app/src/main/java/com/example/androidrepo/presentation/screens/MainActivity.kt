@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         )
         val intent = Intent(this, RepositoriesListActivity::class.java)
         startActivity(intent)
-
+        finish()
         setContentView(binding.root)
     }
 }

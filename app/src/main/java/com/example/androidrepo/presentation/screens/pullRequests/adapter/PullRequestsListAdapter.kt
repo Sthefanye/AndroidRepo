@@ -2,8 +2,10 @@ package com.example.androidrepo.presentation.screens.pullRequests.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.androidrepo.R
 import com.example.androidrepo.databinding.PullRequestListItemBinding
 import com.example.androidrepo.domain.model.PullRequests
 import com.example.androidrepo.utils.addEllipsis
@@ -22,6 +24,12 @@ class PullRequestsListAdapter (private val listPullRequests: List<PullRequests>,
                 tvUsername.text = pullRequest.user.login
                 Glide.with(binding.root).load(pullRequest.user.avatarUrl).into(ivOwnerAvatar)
                 itemView.setOnClickListener { onItemClicked(pullRequest.htmlUrl) }
+                mcPullRequest.startAnimation(
+                    AnimationUtils.loadAnimation(
+                        binding.root.context,
+                        R.anim.anim_list
+                    )
+                )
             }
         }
     }

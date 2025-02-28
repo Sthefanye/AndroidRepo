@@ -16,10 +16,11 @@
             android:layout_marginTop="@dimen/margin_default_36dp"
             android:fontFamily="@font/monasans_semi_bold"
             android:gravity="center"
-            android:text="Repositórios mais populares de Kotlin"
+            android:text="@string/popular_kotlin_repositories"
             android:textAlignment="center"
             android:textColor="@color/gray_light"
             android:textSize="@dimen/title_text_size"
+            android:contentDescription="@string/popular_kotlin_repositories"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -42,6 +43,18 @@
                 android:layout_marginTop="@dimen/margin_default_6dp"
                 tools:listitem="@layout/repositories_list_item" />
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <ProgressBar
+            android:id="@+id/cpProgressIndicator"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:trackColor="@color/gray_light"
+            app:indicatorColor="@color/gray"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/srUpdate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/srUpdate"
+            app:layout_constraintTop_toTopOf="@+id/srUpdate" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
