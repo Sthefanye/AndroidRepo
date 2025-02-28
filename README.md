@@ -53,5 +53,5 @@ Este app foi desenvolvido com o foco em fornecer uma experiência fluida e efici
      </h1>
 <h4> </h4>
 
-<h3> Android Developer </h3>
 <p> Sthefanye Guimarães </p>
+<p> Android Developer </p>
