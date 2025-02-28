@@ -36,10 +36,9 @@ Depois disso, abra o Android Studio, vá para Open (Abrir) e abra a pasta do rep
     • Material Design <br> 
     • Para testes uniários: Mockito e Espresso <br>
     <br>
-    <br>
      </h1>
 
-  ## Abordagem 🧠
+## Abordagem 🧠
 <h4> </h4>
 Este app foi desenvolvido com o foco em fornecer uma experiência fluida e eficiente, utilizando boas práticas e tecnologias para garantir a performance e usabilidade. Optei pelo MVVM junto com Clean Architecture uma estrutura que garante um código limpo,  fácil de manter e testável. Somei com o Hilt para injeção de dependências que facilita e otimiza um gerenciamento de código mais escalável. Retrofit e OkHttp para conexão com Api, sendo implementado um fluxo para transmitir os dados para a View com o auxilio de UseCases. O objetivo é ter as camadas com suas funções, manutenções com mais facilidade e por fim, testes unitários com mais facilidades.
     <br>
