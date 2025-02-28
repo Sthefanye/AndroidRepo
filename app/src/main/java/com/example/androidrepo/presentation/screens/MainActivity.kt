@@ -29,7 +29,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+
         installSplashScreen()
+
         val content: View = findViewById(android.R.id.content)
         content.viewTreeObserver.addOnPreDrawListener(
             object : ViewTreeObserver.OnPreDrawListener {
@@ -43,6 +45,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         )
+
         val intent = Intent(this, RepositoriesListActivity::class.java)
         startActivity(intent)
         finish()

@@ -9,6 +9,7 @@ import com.example.androidrepo.R
 import com.example.androidrepo.databinding.PullRequestListItemBinding
 import com.example.androidrepo.domain.model.PullRequests
 import com.example.androidrepo.utils.addEllipsis
+import com.example.androidrepo.utils.formatPRNumber
 
 class PullRequestsListAdapter (private val listPullRequests: List<PullRequests>,
                                private val onItemClicked: (String) -> Unit) :
@@ -18,7 +19,7 @@ class PullRequestsListAdapter (private val listPullRequests: List<PullRequests>,
         RecyclerView.ViewHolder(binding.root) {
         fun bindItem(pullRequest: PullRequests) {
             binding.apply {
-                tvPullRequestNumber.text = "#${pullRequest.number}:"
+                tvPullRequestNumber.text = formatPRNumber(pullRequest.number)
                 tvPullRequestName.text =  addEllipsis(pullRequest.title, 25)
                 tvPullRequestDescription.text = addEllipsis(pullRequest.body ?: "", 80)
                 tvUsername.text = pullRequest.user.login

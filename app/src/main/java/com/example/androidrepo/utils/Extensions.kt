@@ -15,6 +15,9 @@ fun addEllipsis(text: String, limit: Int): String {
     } else { text }
 }
 
+fun formatPRNumber(number: Int) = "#${number}:"
+
+
 fun View.isVisible(isShowLoading: Boolean, container: View) {
     if (isShowLoading) {
         this.visibility = View.VISIBLE
