@@ -33,8 +33,8 @@ fun PullRequestsResponse.toDomain(): PullRequests {
         assignees = assignees?.map { it.toUser() },
         requestedReviewers = requestedReviewers?.map { it.toUser() },
         requestedTeams = requestedTeams?.map { it.toUser() },
-        labels = labels?.map { it.toLabels() },
-        milestone = milestone,
+        labels = labels?.map { it?.toLabels() },
+        milestone = milestone?.toMilestone(),
         draft = draft,
         commitsUrl = commitsUrl,
         reviewCommentsUrl = reviewCommentsUrl,
@@ -47,6 +47,10 @@ fun PullRequestsResponse.toDomain(): PullRequests {
         autoMerge = autoMerge,
         activeLockReason = activeLockReason
     )
+}
+
+private fun PullRequestsResponse.MilestoneResponse.toMilestone(): PullRequests.Milestone {
+    return PullRequests.Milestone(url = url)
 }
 
 private fun UserResponse.toUser(): User {
@@ -114,8 +118,8 @@ private fun HeadResponse.toHead(): Head {
         label = label,
         ref = ref,
         sha = sha,
-        user = user.toUser(),
-        repo = repo.toRepo()
+        user = user?.toUser(),
+        repo = repo?.toRepo()
     )
 }
 

@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Items(
     @SerializedName("id")
-    val id: Float,
+    val id: Long?,
     @SerializedName("node_id")
     val nodeId: String,
     @SerializedName("name")

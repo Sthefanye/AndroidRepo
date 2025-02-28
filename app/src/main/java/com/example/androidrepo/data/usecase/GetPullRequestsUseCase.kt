@@ -7,21 +7,26 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import java.util.Locale
 import javax.inject.Inject
 
 class GetPullRequestsUseCase @Inject constructor(private val repository: GithubRepositoriesImpl) {
     operator fun invoke(owner: String, repo: String) = flow {
         emit(NetworkResult.Loading(true))
 
-        val result = repository.getPullRequests(owner, repo)
+        val result = repository.getPullRequests(
+            owner.lowercase(Locale.getDefault()),
+            repo.lowercase(Locale.getDefault())
+        )
         if (!result.isSuccessful) {
             emit(NetworkResult.Failure(message = result.message()))
-            return@flow
         }
         result.body()?.let { body ->
-            emit(NetworkResult.Success(data = body.map { it.toDomain() }))
+            val response = body.map { it.toDomain() }
+            emit(NetworkResult.Success(data = response))
         }
     }.catch {
         emit(NetworkResult.Failure(message = it.message.toString()))
+        println(it.message.toString())
     }.flowOn(Dispatchers.IO)
 }

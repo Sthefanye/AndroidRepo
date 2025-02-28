@@ -8,6 +8,7 @@ import com.example.androidrepo.utils.common.NetworkResult
 import com.example.androidrepo.data.usecase.GetPullRequestsUseCase
 import com.example.androidrepo.domain.model.PullRequests
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -19,7 +20,7 @@ class PullRequestListViewModel @Inject constructor(private val useCase: GetPullR
         get() = _pullRequestsList
 
     fun getPullRequests(owner: String, repository: String) = viewModelScope.launch {
-        useCase.invoke(owner, repository).collect {
+        useCase.invoke(owner, repository).collectLatest {
             _pullRequestsList.value = it
         }
     }

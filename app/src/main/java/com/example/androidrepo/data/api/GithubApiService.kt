@@ -12,13 +12,12 @@ interface GithubApiService {
     suspend fun getRepositories(
         @Query("q") query: String = "language:Kotlin",
         @Query("sort") sort: String = "stars",
-        @Query("per_page") perPage: Int = 50
     ): Response<RepositoriesResponse>
 
     @GET("repos/{owner}/{repo}/pulls")
     suspend fun getPullRequests(
         @Path("owner") owner: String,
         @Path("repo") repository: String,
-        @Query("per_page") perPage: Int = 50
+        @Query("state") state: String = "open",
     ): Response<List<PullRequestsResponse>>
 }

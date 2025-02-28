@@ -9,6 +9,7 @@ import com.example.androidrepo.data.usecase.GetRepositoriesUseCase
 import com.example.androidrepo.domain.model.Items
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
@@ -21,7 +22,7 @@ class RepositoriesListViewModel @Inject constructor(private val useCase: GetRepo
         get() = _itemList
 
     fun getRepositories() = viewModelScope.launch {
-        useCase.invoke().collect {
+        useCase.invoke().collectLatest {
             _itemList.value = it
         }
     }

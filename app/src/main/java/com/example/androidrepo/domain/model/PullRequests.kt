@@ -6,7 +6,7 @@ data class PullRequests (
     @SerializedName("url")
     val url: String,
     @SerializedName("id")
-    val id: Float,
+    val id: Long?,
     @SerializedName("node_id")
     val nodeId: String,
     @SerializedName("html_url")
@@ -48,9 +48,9 @@ data class PullRequests (
     @SerializedName("requested_teams")
     val requestedTeams:  List<User>?,
     @SerializedName("labels")
-    val labels:  List<Labels>?,
+    val labels:  List<Labels?>?,
     @SerializedName("milestone")
-    val milestone: String?,
+    val milestone: Milestone?,
     @SerializedName("draft")
     val draft: Boolean,
     @SerializedName("commits_url")
@@ -77,7 +77,7 @@ data class PullRequests (
     data class Assignee(
         val login: String,
         @SerializedName("id")
-        val id: Float,
+        val id: Long?,
         @SerializedName("node_id")
         val nodeId: String,
         @SerializedName("avatar_url")
@@ -114,21 +114,25 @@ data class PullRequests (
         val siteAdmin: Boolean,
     )
 
+    data class Milestone(
+        @SerializedName("url") val url: String,
+    )
+
     data class Labels(
         @SerializedName("id")
-        val id: Float,
+        val id: Long?,
         @SerializedName("node_id")
-        val nodeId: String,
+        val nodeId: String?,
         @SerializedName("url")
-        val url: String,
+        val url: String?,
         @SerializedName("name")
-        val name: String,
+        val name: String?,
         @SerializedName("color")
-        val color: String,
+        val color: String?,
         @SerializedName("default")
-        val default: Boolean,
+        val default: Boolean?,
         @SerializedName("description")
-        val description: String,
+        val description: String?,
     )
 
     data class Links(

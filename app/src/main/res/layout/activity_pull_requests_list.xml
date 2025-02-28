@@ -8,16 +8,112 @@
         android:layout_height="match_parent"
         android:background="@color/gray_dark">
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvOwnerAvatar"
+            android:layout_width="@dimen/size_profile_large"
+            android:layout_height="@dimen/size_profile_large"
+            android:layout_marginHorizontal="@dimen/margin_default_20dp"
+            android:layout_marginTop="@dimen/margin_default_36dp"
+            android:contentDescription="@string/user_picture_accessibility"
+            android:fontFamily="@font/monasans_medium"
+            android:importantForAccessibility="yes"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/corner_radius_profile"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivOwnerAvatar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_launcher_background" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvPullRequestsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_default_10dp"
+            android:layout_marginVertical="@dimen/margin_default_10dp"
+            android:contentDescription="@string/description_repository_accessibility"
+            android:fontFamily="@font/monasans_bold"
+            android:importantForAccessibility="yes"
+            android:maxEms="17"
+            android:maxLines="2"
+            android:text="Pull Requests of"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/title_text_size_20sp"
+            app:layout_constraintStart_toEndOf="@+id/cvOwnerAvatar"
+            app:layout_constraintTop_toTopOf="@+id/cvOwnerAvatar" />
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_default_10dp"
+            android:layout_marginVertical="@dimen/margin_default_10dp"
+            android:contentDescription="@string/description_repository_accessibility"
+            android:fontFamily="@font/monasans_medium"
+            android:importantForAccessibility="yes"
+            android:maxEms="20"
+            android:maxLines="2"
+            android:text="Jetbrains"
+            android:textColor="@color/gray_light"
+            android:textSize="@dimen/large_text_size"
+            app:layout_constraintStart_toEndOf="@+id/cvOwnerAvatar"
+            app:layout_constraintTop_toBottomOf="@+id/tvPullRequestsTitle" />
+
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcListPullRequests"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="@dimen/margin_default_6dp"
+            android:layout_marginTop="@dimen/margin_default_10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvOwnerAvatar"
             tools:listitem="@layout/pull_request_list_item" />
+
+        <ImageView
+            android:id="@+id/ivEmptyList"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/margin_default_50dp"
+            android:src="@drawable/pr_icon"
+            android:adjustViewBounds="true"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvOwnerAvatar" />
+
+        <TextView
+            android:id="@+id/tvEmptyList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="There aren’t any open pull requests."
+            android:textColor="@color/white"
+            android:textSize="@dimen/large_text_size"
+            android:autoSizeTextType="uniform"
+            android:fontFamily="@font/monasans_semi_bold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivEmptyList" />
+
+        <ProgressBar
+            android:id="@+id/cpProgressIndicator"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:trackColor="@color/gray_light"
+            app:indicatorColor="@color/gray"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/rcListPullRequests"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/rcListPullRequests"
+            app:layout_constraintTop_toTopOf="@+id/rcListPullRequests" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

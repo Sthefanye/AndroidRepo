@@ -7,7 +7,7 @@ data class OwnerResponse(
     @SerializedName("login")
     val login: String,
     @SerializedName("id")
-    val id: Float,
+    val id: Long?,
     @SerializedName("node_id")
     val nodeId: String,
     @SerializedName("avatar_url")

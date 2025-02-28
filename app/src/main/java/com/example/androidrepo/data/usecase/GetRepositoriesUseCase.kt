@@ -16,7 +16,6 @@ class GetRepositoriesUseCase @Inject constructor(private val repository: GithubR
         val result = repository.getRepositories()
         if (!result.isSuccessful) {
             emit(NetworkResult.Failure(message = result.message()))
-            return@flow
         }
         result.body()?.let {
             emit(NetworkResult.Success(data = it.toDomain().items))

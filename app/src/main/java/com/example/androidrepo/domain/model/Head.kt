@@ -10,7 +10,7 @@ data class Head(
     @SerializedName("sha")
     val sha: String,
     @SerializedName("user")
-    val user: User,
+    val user: User?,
     @SerializedName("repo")
-    val repo: Repo,
+    val repo: Repo?,
 )

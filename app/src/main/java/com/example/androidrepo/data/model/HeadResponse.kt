@@ -10,7 +10,7 @@ data class HeadResponse(
     @SerializedName("sha")
     val sha: String,
     @SerializedName("user")
-    val user: UserResponse,
+    val user: UserResponse?,
     @SerializedName("repo")
-    val repo: RepoResponse,
+    val repo: RepoResponse?,
 )

@@ -32,20 +32,6 @@ class RepositoriesListActivity : AppCompatActivity() {
         setContentView(binding?.root)
     }
 
-    private fun loadAdapter(listRepo: List<Items>) {
-        val adapter = RepositoriesListAdapter(listRepo) { repository, name ->
-            val intent = Intent(this, PullRequestsListActivity::class.java)
-            intent.apply {
-                action = Intent.ACTION_SEND
-                putExtra(Constants.Extras.USERNAME_EXTRA, name)
-                putExtra(Constants.Extras.REPOSITORY_EXTRA, repository)
-            }
-            startActivity(intent)
-        }
-        binding?.rcListRepositories?.layoutManager = LinearLayoutManager(this)
-        binding?.rcListRepositories?.adapter = adapter
-
-    }
 
     private fun bindObservers() {
         lifecycleScope.launch {
@@ -69,6 +55,21 @@ class RepositoriesListActivity : AppCompatActivity() {
         }
     }
 
+    private fun loadAdapter(listRepo: List<Items>) {
+        val adapter = RepositoriesListAdapter(listRepo) { repository, name, avatar ->
+            val intent = Intent(this, PullRequestsListActivity::class.java)
+            intent.apply {
+                action = Intent.ACTION_SEND
+                putExtra(Constants.Extras.USERNAME_EXTRA, name)
+                putExtra(Constants.Extras.REPOSITORY_EXTRA, repository)
+                putExtra(Constants.Extras.AVATAR_EXTRA, avatar)
+            }
+            startActivity(intent)
+        }
+        binding?.rcListRepositories?.layoutManager = LinearLayoutManager(this)
+        binding?.rcListRepositories?.adapter = adapter
+
+    }
 
     override fun onDestroy() {
         super.onDestroy()

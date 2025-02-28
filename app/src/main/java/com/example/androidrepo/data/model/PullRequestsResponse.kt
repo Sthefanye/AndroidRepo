@@ -6,7 +6,7 @@ data class PullRequestsResponse (
     @SerializedName("url")
     val url: String,
     @SerializedName("id")
-    val id: Float,
+    val id: Long?,
     @SerializedName("node_id")
     val nodeId: String,
     @SerializedName("html_url")
@@ -48,9 +48,9 @@ data class PullRequestsResponse (
     @SerializedName("requested_teams")
     val requestedTeams:  List<UserResponse>?,
     @SerializedName("labels")
-    val labels:  List<LabelsResponse>?,
+    val labels:  List<LabelsResponse?>?,
     @SerializedName("milestone")
-    val milestone: String?,
+    val milestone: MilestoneResponse?,
     @SerializedName("draft")
     val draft: Boolean,
     @SerializedName("commits_url")
@@ -74,10 +74,16 @@ data class PullRequestsResponse (
     @SerializedName("active_lock_reason")
     val activeLockReason: String?,
 ) {
+
+    data class MilestoneResponse(
+        @SerializedName("url") val url: String,
+    )
+
     data class AssigneeResponse(
+        @SerializedName("login")
         val login: String,
         @SerializedName("id")
-        val id: Float,
+        val id: Long?,
         @SerializedName("node_id")
         val nodeId: String,
         @SerializedName("avatar_url")
@@ -116,19 +122,19 @@ data class PullRequestsResponse (
 
     data class LabelsResponse(
         @SerializedName("id")
-        val id: Float,
+        val id: Long?,
         @SerializedName("node_id")
-        val nodeId: String,
+        val nodeId: String?,
         @SerializedName("url")
-        val url: String,
+        val url: String?,
         @SerializedName("name")
-        val name: String,
+        val name: String?,
         @SerializedName("color")
-        val color: String,
+        val color: String?,
         @SerializedName("default")
-        val default: Boolean,
+        val default: Boolean?,
         @SerializedName("description")
-        val description: String,
+        val description: String?,
     )
 
     data class LinksResponse(

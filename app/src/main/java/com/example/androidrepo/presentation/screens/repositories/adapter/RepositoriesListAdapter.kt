@@ -14,7 +14,7 @@ import com.example.androidrepo.utils.toTitle
 
 class RepositoriesListAdapter(
     private val listRepositories: List<Items>,
-    private val onItemClicked: (String, String) -> Unit
+    private val onItemClicked: (String, String, String ) -> Unit
 ) :
     RecyclerView.Adapter<RepositoriesListAdapter.RepositoriesViewHolder>() {
 
@@ -29,7 +29,7 @@ class RepositoriesListAdapter(
                 tvStarsNumbers.text = "${item.stargazersCount}"
                 tvUsername.text = item.owner.login
                 Glide.with(binding.root).load(item.owner.avatarUrl).into(ivOwner)
-                itemView.setOnClickListener { onItemClicked(item.owner.login, item.name) }
+                itemView.setOnClickListener { onItemClicked(item.owner.login, item.name, item.owner.avatarUrl) }
                 mcRepository.startAnimation(
                     AnimationUtils.loadAnimation(
                         binding.root.context,
