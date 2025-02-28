@@ -9,7 +9,7 @@
 <h2> How it works </h2>
 <p> Popular Kotlin repositores é um aplicativo que lista os repositórios mais populares da linguagem Kotlin. Além disto, ai selecionar um reposisótio, é listado os pull requests abertos, sendo possível visualizar no navegador do aparelho mais detalhes do Pull Requeste selecionado. </p>
     <p align="center">
-      <img src="https://github.com/Sthefanye/programming-challenge-android-ui-august-2021/blob/main/gif.gif?raw=true" alt="APP"  width="250" />
+      <img src="https://github.com/Sthefanye/AndroidRepo/blob/main/AppRepositoriesGif.gif" alt="APP"  width="250" />
     <h6 align="center">demonstration</h6>
     </p>
 <h2> How to use </h2></p>
@@ -18,13 +18,13 @@ To clone and run this app, you will need <a href="https://github.com/">Git</a> a
     <br>On your command line:
     <h5>Clone this repository: </h5>
 ```markdown
-  https://github.com/Sthefanye/programming-challenge-android-ui-august-2021.git
+  **https://github.com/Sthefanye/programming-challenge-android-ui-august-2021.git**
   ```
 After that, open Android Studio, go to Open, and open the repository folder.
 
 <h4> Version I used for application development: </h4>
-    • <strong> API Level: </strong> 28 <br>
-    • <strong> Target: </strong> Android 9.0 (Pie)
+    • <strong> API Level: </strong> 35 <br>
+    • <strong> Target: </strong> Android 9.0 (Pie) and Emulator Pixel 8 API 35
     <br>
     <br>
     
