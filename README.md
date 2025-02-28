@@ -13,7 +13,7 @@
     
 # Popular Kotlin repositores 
 
-Bem-vindo(a), o Popular Kotlin repositores é um aplicativo que lista os repositórios mais populares da linguagem Kotlin. Além disto, ai selecionar um reposisótio, é listado os pull requests abertos, sendo possível visualizar no navegador do aparelho mais detalhes do Pull Requeste selecionado.
+Bem-vindo(a), o Popular Kotlin repositores é um aplicativo que lista os repositórios mais populares da linguagem Kotlin. Além disto, ao selecionar um reposisótio, é listado os pull requests abertos, sendo possível visualizar no navegador do aparelho mais detalhes do Pull Requeste selecionado.
 
 ## Como instalar ☕️
 Para clonar e executar esse aplicativo, você precisará do <a href="https://github.com/">Git</a> e <a href="https://developer.android.com/studio">Android Studio</a> instalado no seu computador. 
