@@ -19,7 +19,7 @@ class GetRepositoriesUseCase @Inject constructor(private val repository: GithubR
             return@flow
         }
         result.body()?.let {
-            emit(NetworkResult.Success(data =  it.toDomain().items))
+            emit(NetworkResult.Success(data = it.toDomain().items))
         }
     }.catch {
         emit(NetworkResult.Failure(message = it.message.toString()))

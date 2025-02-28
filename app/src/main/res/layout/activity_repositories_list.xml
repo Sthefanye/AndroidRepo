@@ -8,16 +8,40 @@
         android:layout_height="match_parent"
         android:background="@color/gray_dark">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcListRepositories"
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_default_28dp"
+            android:layout_marginTop="@dimen/margin_default_36dp"
+            android:fontFamily="@font/monasans_semi_bold"
+            android:gravity="center"
+            android:text="Repositórios mais populares de Kotlin"
+            android:textAlignment="center"
+            android:textColor="@color/gray_light"
+            android:textSize="@dimen/title_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+        </TextView>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/srUpdate"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="@dimen/margin_default_6dp"
-            tools:listitem="@layout/repositories_list_item"
+            android:layout_marginTop="@dimen/margin_default_10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/title">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcListRepositories"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/margin_default_6dp"
+                tools:listitem="@layout/repositories_list_item" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

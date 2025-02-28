@@ -1,6 +1,6 @@
 [versions]
 agp = "8.7.2"
-kotlin = "1.9.24"
+kotlin = "2.1.0"
 coreKtx = "1.15.0"
 appcompat = "1.7.0"
 material = "1.12.0"
@@ -9,19 +9,29 @@ okhttp = "4.12.0"
 daggerHilt = "2.51.1"
 activity = "1.8.0"
 glide = "4.16.0"
+reflection = "2.1.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
-androidxTest = "1.6.2"
-mockito = "5.15.1"
+archCore = "2.2.0"
+androidxTest = "1.6.1"
+coroutines = "1.10.1"
+mockito = "5.15.2"
 mockitoKotlin = "5.4.0"
 mockk = "1.13.16"
+mockwebserver = "4.12.0"
+espressoContrib = "3.6.1"
+splash = "1.0.0"
+swipeRefresh = "1.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+androidx-reflection = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "reflection" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 activity = { group = "androidx.activity", name = "activity-ktx", version.ref = "activity" }
+splash-screen = { module= "androidx.core:core-splashscreen",  version.ref = "splash"}
+swipe-refresh = { module= "androidx.swiperefreshlayout:swiperefreshlayout",  version.ref = "swipeRefresh"}
 
 # Retrofit
 refrotit = { module = "com.squareup.retrofit2:retrofit", version.ref = "refrotit" }
@@ -41,16 +51,24 @@ glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide"}
 # Test
 androidx-core-test = { group = "androidx.test", name = "core", version.ref = "androidxTest" }
 androidx-core-ktx-test = { group = "androidx.test", name = "core-ktx", version.ref = "androidxTest" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+archCore = { module = "androidx.arch.core:core-testing",  version.ref = "archCore" }
+mockwebserver = { module = "com.squareup.okhttp3:mockwebserver",  version.ref = "mockwebserver" }
 
 #Espresso
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+espresso-contrib = { group = "androidx.test.espresso", name = "espresso-contrib", version.ref = "espressoContrib" }
+espresso-idling = { group = "androidx.test.espresso", name = "espresso-idling-resource", version.ref = "espressoContrib" }
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidxTest" }
 androidx-test-rules = { module = "androidx.test:rules", version.ref = "androidxTest" }
 
 #Mockito
 mockito = { module = "org.mockito:mockito-core",  version.ref = "mockito"}
+mockito-android = { module = "org.mockito:mockito-android",  version.ref = "mockito"}
 mockito-kotlin =  { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockitoKotlin"}
 mockk =  { module = "io.mockk:mockk", version.ref = "mockk"}
 

@@ -9,8 +9,8 @@ fun String.toTitle() = replaceFirstChar {
     ) else it.toString()
 }
 
-fun addEllipsis(text: String): String {
-    return if (text.length > 80) {
+fun addEllipsis(text: String, limit: Int): String {
+    return if (text.length > limit) {
         text.take(80) + "..."
     } else { text }
 }

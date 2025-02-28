@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.AndroidRepo" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme.AndroidRepo" parent="Theme.AppCompat.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/gray_dark</item>
         <item name="colorPrimaryVariant">@color/gray_dark</item>
@@ -12,5 +12,24 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <!-- enable window content transitions -->
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+
+    </style>
+
+    <style name="Theme.AndroidRepo.Starting" parent="Theme.SplashScreen">
+        <!-- Set the splash screen background, animated icon, and animation
+        duration. -->
+        <item name="android:windowSplashScreenBackground" tools:ignore="NewApi">@color/gray_dark</item>
+        <item name="android:windowSplashScreenAnimationDuration" tools:ignore="NewApi">300</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:ignore="NewApi">@drawable/ic_launcher_foreground</item>
+        <item name="android:windowSplashScreenIconBackgroundColor" tools:ignore="NewApi">@color/gray_dark</item>
+        <item name="postSplashScreenTheme">@style/Theme.AndroidRepo</item>
+    </style>
+
+    <style name="WindowAnimationTransition">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
     </style>
 </resources>

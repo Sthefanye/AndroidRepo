@@ -8,17 +8,20 @@ import com.example.androidrepo.databinding.PullRequestListItemBinding
 import com.example.androidrepo.domain.model.PullRequests
 import com.example.androidrepo.utils.addEllipsis
 
-class PullRequestsListAdapter (private val listPullRequests: List<PullRequests>) :
+class PullRequestsListAdapter (private val listPullRequests: List<PullRequests>,
+                               private val onItemClicked: (String) -> Unit) :
     RecyclerView.Adapter<PullRequestsListAdapter.PullRequestViewHolder>() {
 
     inner class PullRequestViewHolder(private val binding: PullRequestListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bindItem(pullRequest: PullRequests) {
             binding.apply {
-                tvPullRequestName.text = pullRequest.title
-                tvPullRequestDescription.text = addEllipsis(pullRequest.body ?: "")
+                tvPullRequestNumber.text = "#${pullRequest.number}:"
+                tvPullRequestName.text =  addEllipsis(pullRequest.title, 25)
+                tvPullRequestDescription.text = addEllipsis(pullRequest.body ?: "", 80)
                 tvUsername.text = pullRequest.user.login
                 Glide.with(binding.root).load(pullRequest.user.avatarUrl).into(ivOwnerAvatar)
+                itemView.setOnClickListener { onItemClicked(pullRequest.htmlUrl) }
             }
         }
     }

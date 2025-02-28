@@ -16,7 +16,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.example.androidrepo.AndroidApplicationRunner"
     }
 
     buildTypes {
@@ -44,8 +44,12 @@ android {
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.reflection)
+    implementation(libs.kotlinx.coroutines)
     implementation(libs.material)
     implementation(libs.activity)
+    implementation(libs.splash.screen)
+    implementation(libs.swipe.refresh)
 
     // Retrofit
     implementation(libs.refrotit)
@@ -58,22 +62,31 @@ dependencies {
 
     // Glide
     implementation(libs.glide)
+    implementation(libs.espresso.contrib)
+    implementation(libs.espresso.idling)
     testImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.dagger.hilt.android.testing)
 
     // Dagger
     kapt(libs.dagger.hilt.android.compiler)
     implementation(libs.dagger.hilt)
 
     // Unit Test
-
     testImplementation(libs.junit)
     testImplementation(libs.mockito)
     testImplementation(libs.mockito.kotlin)
+    testImplementation(libs.mockito.android)
     testImplementation(libs.mockk)
+    testImplementation(libs.mockwebserver)
+    testImplementation(libs.archCore)
     testImplementation(libs.dagger.hilt.android.testing)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.kotlinx.coroutines.core)
     kaptAndroidTest(libs.dagger.hilt.android.compiler)
 
     androidTestImplementation(libs.androidx.core.test)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.kotlinx.coroutines.core)
     androidTestImplementation(libs.androidx.core.ktx.test)
     androidTestImplementation(libs.androidx.test.runner)
     androidTestImplementation(libs.androidx.test.rules)

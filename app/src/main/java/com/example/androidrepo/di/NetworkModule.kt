@@ -1,6 +1,6 @@
 package com.example.androidrepo.di
 
-import com.example.androidrepo.data.api.GithubApi
+import com.example.androidrepo.data.api.GithubApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -40,6 +40,6 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideApiService(retrofit: Retrofit): GithubApi = retrofit.create(GithubApi::class.java)
+    fun provideApiService(retrofit: Retrofit): GithubApiService = retrofit.create(GithubApiService::class.java)
 
 }

@@ -12,8 +12,8 @@
         android:clickable="true"
         android:elevation="2dp"
         android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground"
         android:importantForAccessibility="yes"
+        app:cardBackgroundColor="@color/gray"
         android:contentDescription="@string/info_pull_request_accessibility"
         android:outlineAmbientShadowColor="@color/white"
         android:outlineSpotShadowColor="@color/white"
@@ -25,21 +25,38 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/tvPullRequestNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_default_10dp"
+                android:layout_marginTop="@dimen/margin_default_20dp"
+                android:contentDescription="@string/title_repository_accessibility"
+                android:fontFamily="@font/monasans_bold"
+                android:importantForAccessibility="yes"
+                android:maxEms="5"
+                android:maxLines="1"
+                android:text="fsdf"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/large_text_size_14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
                 android:id="@+id/tvPullRequestName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_default_20dp"
-                android:layout_marginTop="@dimen/margin_default_20dp"
                 android:contentDescription="@string/title_repository_accessibility"
                 android:fontFamily="@font/monasans_bold"
                 android:importantForAccessibility="yes"
                 android:maxEms="16"
                 android:maxLines="1"
                 android:text=""
-                android:textColor="@color/blue"
-                android:textSize="@dimen/large_text_size"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textColor="@color/white"
+                android:textSize="@dimen/large_text_size_14sp"
+                android:layout_marginStart="@dimen/margin_default_2dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvPullRequestNumber"
+                app:layout_constraintStart_toEndOf="@+id/tvPullRequestNumber"
+                app:layout_constraintTop_toTopOf="@+id/tvPullRequestNumber" />
 
             <TextView
                 android:id="@+id/tvPullRequestDescription"
@@ -49,11 +66,13 @@
                 android:contentDescription="@string/description_repository_accessibility"
                 android:fontFamily="@font/monasans_medium"
                 android:importantForAccessibility="yes"
-                android:maxEms="19"
+                android:maxEms="20"
                 android:maxLines="2"
-                android:textColor="@color/gray"
+                android:textAlignment="textStart"
+                android:text=""
+                android:textColor="@color/gray_light"
                 android:textSize="@dimen/small_text_size"
-                app:layout_constraintStart_toStartOf="@id/tvPullRequestName"
+                app:layout_constraintStart_toStartOf="@+id/tvPullRequestNumber"
                 app:layout_constraintTop_toBottomOf="@id/tvPullRequestName" />
 
             <androidx.cardview.widget.CardView
@@ -85,11 +104,11 @@
                 android:contentDescription="@string/username_accessibility"
                 android:fontFamily="@font/monasans_medium"
                 android:importantForAccessibility="yes"
-                android:maxEms="5"
+                android:maxEms="16"
                 android:maxLines="2"
                 android:text=""
                 android:textAlignment="center"
-                android:textColor="@color/gray"
+                android:textColor="@color/purple_light"
                 android:textSize="@dimen/medium_text_size"
                 app:layout_constraintBottom_toBottomOf="@+id/cvOwnerAvatar"
                 app:layout_constraintStart_toEndOf="@+id/cvOwnerAvatar"

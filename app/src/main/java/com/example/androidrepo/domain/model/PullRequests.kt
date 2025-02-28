@@ -38,7 +38,7 @@ data class PullRequests (
     @SerializedName("merged_at")
     val mergedAt: String?,
     @SerializedName("merge_commit_sha")
-    val mergeCommitSha: String,
+    val mergeCommitSha: String?,
     @SerializedName("assignee")
     val assignee: Assignee?,
     @SerializedName("assignees")
@@ -66,7 +66,7 @@ data class PullRequests (
     @SerializedName("head")
     val head: Head?,
     @SerializedName("links")
-    val links: Links,
+    val links: Links?,
     @SerializedName("author_association")
     val authorAssociation: String,
     @SerializedName("auto_merge")
@@ -152,7 +152,7 @@ data class PullRequests (
 
     data class Link(
         @SerializedName("href")
-        val href: String
+        val href: String?
     )
 
 }

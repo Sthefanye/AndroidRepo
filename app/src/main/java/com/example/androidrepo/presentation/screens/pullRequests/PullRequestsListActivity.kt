@@ -1,18 +1,21 @@
 package com.example.androidrepo.presentation.screens.pullRequests
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.androidrepo.utils.common.NetworkResult
 import com.example.androidrepo.databinding.ActivityPullRequestsListBinding
 import com.example.androidrepo.domain.model.PullRequests
 import com.example.androidrepo.presentation.screens.pullRequests.adapter.PullRequestsListAdapter
 import com.example.androidrepo.presentation.screens.pullRequests.viewmodel.PullRequestListViewModel
 import com.example.androidrepo.utils.Constants
+import com.example.androidrepo.utils.common.NetworkResult
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+
 
 @AndroidEntryPoint
 class PullRequestsListActivity : AppCompatActivity() {
@@ -33,7 +36,9 @@ class PullRequestsListActivity : AppCompatActivity() {
         setContentView(binding?.root)
     }
     private fun loadListInRecycler(listRepo: List<PullRequests>) {
-        val adapter = PullRequestsListAdapter(listRepo)
+        val adapter = PullRequestsListAdapter(listRepo) {
+            openPullRequestInBrowser(it)
+        }
         binding?.rcListPullRequests?.layoutManager = LinearLayoutManager(this)
         binding?.rcListPullRequests?.adapter = adapter
     }
@@ -50,6 +55,11 @@ class PullRequestsListActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun openPullRequestInBrowser(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW).setData(Uri.parse(url))
+        startActivity(intent)
     }
 
     override fun onDestroy() {

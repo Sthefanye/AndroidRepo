@@ -10,9 +10,12 @@
 
     <color name="gray">#363D42</color>
     <color name="gray_dark">#1f2328</color>
+    <color name="gray_dark_two">#262B30</color>
     <color name="gray_light">#dae0e7</color>
     <color name="gray_muted">#59636e</color>
     <color name="blue">#54aeff</color>
+    <color name="green">#6fdd8b</color>
     <color name="blue_light">#1784FA</color>
+    <color name="purple_light">#c297ff</color>
     <color name="yellow">#eac54f</color>
 </resources>

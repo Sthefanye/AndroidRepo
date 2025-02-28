@@ -10,7 +10,7 @@ data class LicenseResponse (
     @SerializedName("spdx_id")
     val spdxId: String,
     @SerializedName("url")
-    val url: String,
+    val url: String?,
     @SerializedName("node_id")
     val nodeId: String,
 )

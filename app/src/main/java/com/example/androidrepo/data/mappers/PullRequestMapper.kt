@@ -42,7 +42,7 @@ fun PullRequestsResponse.toDomain(): PullRequests {
         commentsUrl = commentsUrl,
         statusesUrl = statusesUrl,
         head = head?.toHead(),
-        links = links.toLinks(),
+        links = links?.toLinks(),
         authorAssociation = authorAssociation,
         autoMerge = autoMerge,
         activeLockReason = activeLockReason

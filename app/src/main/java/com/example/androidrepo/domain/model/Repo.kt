@@ -118,7 +118,7 @@ data class Repo(
     @SerializedName("watchers_count")
     val watchersCount: Int,
     @SerializedName("language")
-    val language: String,
+    val language: String?,
     @SerializedName("has_issues")
     val hasIssues: Boolean,
     @SerializedName("has_projects")
