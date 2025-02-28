@@ -1,4 +1,4 @@
-package com.example.androidrepo.domain.model.pulls
+package com.example.androidrepo.domain.model
 
 import com.google.gson.annotations.SerializedName
 

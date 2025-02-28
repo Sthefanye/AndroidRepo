@@ -1,9 +1,9 @@
-package com.example.androidrepo.domain.model.repositories
+package com.example.androidrepo.data.model
 
 
 import com.google.gson.annotations.SerializedName
 
-data class Items(
+data class ItemsResponse(
     @SerializedName("id")
     val id: Float,
     @SerializedName("node_id")
@@ -15,7 +15,7 @@ data class Items(
     @SerializedName("private")
     val private: Boolean,
     @SerializedName("owner")
-    val owner: Owner,
+    val owner: OwnerResponse,
     @SerializedName("html_url")
     val htmlUrl: String,
     @SerializedName("description")
@@ -143,7 +143,7 @@ data class Items(
     @SerializedName("open_issues_count")
     val openIssuesCount: Int,
     @SerializedName("license")
-    val license: License?,
+    val license: LicenseResponse?,
     @SerializedName("allow_forking")
     val allowForking: Boolean,
     @SerializedName("is_template")

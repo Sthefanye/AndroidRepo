@@ -1,8 +1,8 @@
-package com.example.androidrepo.domain.model.pulls
+package com.example.androidrepo.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Base(
+data class HeadResponse(
     @SerializedName("label")
     val label: String,
     @SerializedName("ref")
@@ -10,7 +10,7 @@ data class Base(
     @SerializedName("sha")
     val sha: String,
     @SerializedName("user")
-    val user: User,
+    val user: UserResponse,
     @SerializedName("repo")
-    val repo: Repo,
+    val repo: RepoResponse,
 )

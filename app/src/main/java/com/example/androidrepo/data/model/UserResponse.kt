@@ -1,8 +1,9 @@
-package com.example.androidrepo.domain.model.pulls
+package com.example.androidrepo.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Assignee(
+data class UserResponse(
+    @SerializedName("login")
     val login: String,
     @SerializedName("id")
     val id: Float,

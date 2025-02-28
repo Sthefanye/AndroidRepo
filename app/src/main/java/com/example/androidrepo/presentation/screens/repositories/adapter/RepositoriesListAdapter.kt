@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.androidrepo.databinding.RepositoriesListItemBinding
-import com.example.androidrepo.domain.model.repositories.Items
-import com.example.androidrepo.presentation.utils.addEllipsis
-import com.example.androidrepo.presentation.utils.toTitle
+import com.example.androidrepo.domain.model.Items
+import com.example.androidrepo.utils.addEllipsis
+import com.example.androidrepo.utils.toTitle
 
 
 class RepositoriesListAdapter(

@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.androidrepo.core.common.NetworkResult
+import com.example.androidrepo.utils.common.NetworkResult
 import com.example.androidrepo.data.usecase.GetRepositoriesUseCase
-import com.example.androidrepo.domain.model.repositories.Items
+import com.example.androidrepo.domain.model.Items
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

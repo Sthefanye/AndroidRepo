@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.androidrepo.databinding.PullRequestListItemBinding
-import com.example.androidrepo.domain.model.pulls.PullRequests
-import com.example.androidrepo.presentation.utils.addEllipsis
+import com.example.androidrepo.domain.model.PullRequests
+import com.example.androidrepo.utils.addEllipsis
 
 class PullRequestsListAdapter (private val listPullRequests: List<PullRequests>) :
     RecyclerView.Adapter<PullRequestsListAdapter.PullRequestViewHolder>() {

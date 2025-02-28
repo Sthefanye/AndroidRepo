@@ -1,8 +1,9 @@
-package com.example.androidrepo.domain.model.repositories
+package com.example.androidrepo.data.model
 
+import com.example.androidrepo.domain.model.Owner
 import com.google.gson.annotations.SerializedName
 
-data class Owner(
+data class OwnerResponse(
     @SerializedName("login")
     val login: String,
     @SerializedName("id")

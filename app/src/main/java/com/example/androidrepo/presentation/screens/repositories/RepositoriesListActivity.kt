@@ -7,13 +7,13 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.androidrepo.core.common.NetworkResult
+import com.example.androidrepo.utils.common.NetworkResult
 import com.example.androidrepo.databinding.ActivityRepositoriesListBinding
-import com.example.androidrepo.domain.model.repositories.Items
+import com.example.androidrepo.domain.model.Items
 import com.example.androidrepo.presentation.screens.pullRequests.PullRequestsListActivity
 import com.example.androidrepo.presentation.screens.repositories.adapter.RepositoriesListAdapter
 import com.example.androidrepo.presentation.screens.repositories.viewmodel.RepositoriesListViewModel
-import com.example.androidrepo.presentation.utils.Constants
+import com.example.androidrepo.utils.Constants
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

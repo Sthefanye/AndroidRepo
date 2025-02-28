@@ -1,4 +1,4 @@
-package com.example.androidrepo.presentation.utils
+package com.example.androidrepo.utils
 
 import android.view.View
 import java.util.Locale

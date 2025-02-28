@@ -1,4 +1,4 @@
-package com.example.androidrepo.core.common
+package com.example.androidrepo.utils.common
 
 sealed class NetworkResult<T> {
     data class Loading<T>(val isLoading: Boolean) : NetworkResult<T>()

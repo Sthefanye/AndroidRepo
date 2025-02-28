@@ -1,4 +1,4 @@
-package com.example.androidrepo.presentation.utils
+package com.example.androidrepo.utils
 
 object Constants {
     const val TAG = "AndroidRepo"

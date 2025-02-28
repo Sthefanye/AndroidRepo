@@ -1,10 +1,9 @@
-package com.example.androidrepo.domain.model.pulls
+package com.example.androidrepo.domain.model
 
-import com.example.androidrepo.domain.model.repositories.License
-import com.example.androidrepo.domain.model.repositories.Owner
+
 import com.google.gson.annotations.SerializedName
 
-data class Repo(
+data class Items(
     @SerializedName("id")
     val id: Float,
     @SerializedName("node_id")
@@ -163,6 +162,6 @@ data class Repo(
     val watchers: Int,
     @SerializedName("default_branch")
     val defaultBranch: String,
+    @SerializedName("score")
+    val score: Float,
 )
-
-

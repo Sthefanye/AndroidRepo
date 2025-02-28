@@ -1,6 +1,7 @@
 package com.example.androidrepo.data.usecase
 
-import com.example.androidrepo.core.common.NetworkResult
+import com.example.androidrepo.utils.common.NetworkResult
+import com.example.androidrepo.data.mappers.toDomain
 import com.example.androidrepo.data.repository.GithubRepositoriesImpl
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
@@ -18,7 +19,7 @@ class GetRepositoriesUseCase @Inject constructor(private val repository: GithubR
             return@flow
         }
         result.body()?.let {
-            emit(NetworkResult.Success(data = it.items))
+            emit(NetworkResult.Success(data =  it.toDomain().items))
         }
     }.catch {
         emit(NetworkResult.Failure(message = it.message.toString()))
